@@ -1,357 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Name — Résumé</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#15182b;
-    --paper:#f3efe6;
-    --paper-dim:#e7e1d3;
-    --gold:#c79a3c;
-    --teal:#3e6e64;
-    --line:rgba(243,239,230,0.18);
-    --line-strong:rgba(243,239,230,0.32);
-    --max:880px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--ink);
-    color:var(--paper);
-    font-family:'Inter',sans-serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:var(--gold);text-decoration:none;}
-  a:hover{text-decoration:underline;}
-  ::selection{background:var(--gold);color:var(--ink);}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afsana Mimi | Portfolio</title>
 
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  /* NAV */
-  nav{
-    position:sticky;top:0;z-index:10;
-    background:rgba(21,24,43,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  nav .wrap{
-    display:flex;justify-content:space-between;align-items:center;
-    padding:16px 28px;
-  }
-  .nav-mark{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;letter-spacing:0.08em;
-    color:var(--paper);opacity:0.85;
-  }
-  .nav-links{display:flex;gap:24px;list-style:none;margin:0;padding:0;}
-  .nav-links a{
-    color:var(--paper);opacity:0.7;font-size:14px;
-    font-family:'IBM Plex Mono',monospace;letter-spacing:0.04em;
-  }
-  .nav-links a:hover{opacity:1;color:var(--gold);text-decoration:none;}
+  <style>
+    /* =====================
+       GLOBAL STYLES
+    ======================*/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-  /* HERO */
-  header.hero{padding:96px 0 64px;border-bottom:1px solid var(--line);}
-  .eyebrow{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;letter-spacing:0.18em;text-transform:uppercase;
-    color:var(--gold);margin-bottom:18px;display:block;
-  }
-  h1{
-    font-family:'Fraunces',serif;
-    font-weight:600;
-    font-size:clamp(40px,7vw,68px);
-    line-height:1.04;
-    margin:0 0 18px;
-  }
-  .role{
-    font-family:'Fraunces',serif;font-style:italic;font-weight:300;
-    font-size:clamp(18px,2.4vw,24px);
-    color:var(--paper);opacity:0.85;margin:0 0 24px;
-  }
-  .bio{max-width:620px;font-size:16px;opacity:0.82;margin:0 0 28px;}
-  .contact-row{display:flex;flex-wrap:wrap;gap:18px;font-family:'IBM Plex Mono',monospace;font-size:13px;}
-  .contact-row span{opacity:0.5;}
+    body {
+      background: #f4f8ff;
+      color: #1f2a44;
+      line-height: 1.6;
+    }
 
-  /* SECTION SCAFFOLD */
-  section{padding:72px 0;border-bottom:1px solid var(--line);}
-  section:last-of-type{border-bottom:none;}
-  .section-head{
-    display:flex;align-items:baseline;gap:16px;margin-bottom:40px;
-  }
-  .section-num{
-    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--gold);
-  }
-  h2{
-    font-family:'Fraunces',serif;font-weight:600;
-    font-size:clamp(26px,4vw,34px);margin:0;
-  }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-  /* EDUCATION — transcript / ledger style */
-  .ledger{border-top:1px solid var(--line-strong);}
-  .ledger-row{
-    display:grid;
-    grid-template-columns:120px 1fr auto;
-    gap:20px;
-    padding:26px 0;
-    border-bottom:1px solid var(--line);
-    align-items:start;
-  }
-  .ledger-stamp{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;letter-spacing:0.06em;
-    color:var(--teal);
-    border:1px solid var(--teal);
-    border-radius:3px;
-    padding:4px 8px;
-    width:fit-content;
-    text-transform:uppercase;
-  }
-  .ledger-body h3{
-    font-family:'Fraunces',serif;font-weight:500;font-size:19px;margin:0 0 4px;
-  }
-  .ledger-body p{margin:0 0 8px;opacity:0.8;font-size:14.5px;}
-  .ledger-meta{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;color:var(--gold);
-  }
-  .ledger-year{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;opacity:0.6;white-space:nowrap;text-align:right;
-  }
+    /* =====================
+       HEADER / HERO
+    ======================*/
+    header {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
 
-  /* WORK EXPERIENCE */
-  .job{
-    display:grid;grid-template-columns:160px 1fr;gap:24px;
-    padding:28px 0;border-bottom:1px solid var(--line);
-  }
-  .job:last-child{border-bottom:none;}
-  .job-period{
-    font-family:'IBM Plex Mono',monospace;font-size:13px;opacity:0.55;
-    padding-top:4px;
-  }
-  .job-title{
-    font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin:0 0 4px;
-  }
-  .job-org{color:var(--gold);font-size:14px;font-family:'IBM Plex Mono',monospace;margin-bottom:12px;display:block;}
-  .job ul{margin:0;padding-left:18px;opacity:0.85;font-size:15px;}
-  .job li{margin-bottom:6px;}
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
 
-  /* SKILLS */
-  .skill-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;}
-  .skill-group-label{
-    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;
-    text-transform:uppercase;color:var(--teal);margin-bottom:14px;display:block;
-  }
-  .pill-row{display:flex;flex-wrap:wrap;gap:8px;}
-  .pill{
-    font-family:'IBM Plex Mono',monospace;font-size:13px;
-    border:1px solid var(--line-strong);
-    border-radius:20px;
-    padding:6px 14px;
-    opacity:0.9;
-  }
+    header p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
 
-  footer{
-    padding:40px 28px;text-align:center;
-    font-family:'IBM Plex Mono',monospace;font-size:12.5px;opacity:0.45;
-  }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: white;
+      color: #1e3c72;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
 
-  /* Reveal animation */
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity 0.6s ease,transform 0.6s ease;}
-  .reveal.is-visible{opacity:1;transform:translateY(0);}
+    .btn:hover {
+      background: #dbe9ff;
+    }
 
-  @media (prefers-reduced-motion:reduce){
-    .reveal{transition:none;opacity:1;transform:none;}
-  }
+    /* =====================
+       NAV
+    ======================*/
+    nav {
+      position: sticky;
+      top: 0;
+      background: white;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      z-index: 1000;
+    }
 
-  @media (max-width:640px){
-    .ledger-row{grid-template-columns:1fr;}
-    .ledger-year{text-align:left;}
-    .job{grid-template-columns:1fr;}
-    .nav-links{gap:14px;}
-  }
+    nav a {
+      font-weight: 600;
+      color: #1e3c72;
+      transition: 0.3s;
+    }
 
-  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
-</style>
+    nav a:hover {
+      color: #2a5298;
+    }
+
+    /* =====================
+       SECTIONS
+    ======================*/
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #1e3c72;
+      font-size: 28px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* =====================
+       SKILLS
+    ======================*/
+    .skill {
+      margin: 10px 0;
+    }
+
+    .bar {
+      background: #e6ecf5;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 10px;
+      background: linear-gradient(90deg, #1e3c72, #2a5298);
+    }
+
+    /* =====================
+       BADGES
+    ======================*/
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .badge {
+      background: #1e3c72;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    /* =====================
+       CONTACT
+    ======================*/
+    .contact i {
+      margin-right: 10px;
+      color: #1e3c72;
+    }
+
+    /* =====================
+       FOOTER
+    ======================*/
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1e3c72;
+      color: white;
+      margin-top: 40px;
+    }
+
+    /* =====================
+       RESPONSIVE
+    ======================*/
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 32px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<nav>
-  <div class="wrap">
-    <span class="nav-mark">YOUR NAME / RÉSUMÉ</span>
-    <ul class="nav-links">
-      <li><a href="#education">Education</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-    </ul>
-  </div>
-</nav>
+  <!-- HERO SECTION -->
+  <header>
+    <h1>Afsana Mimi</h1>
+    <p>BBA Student | Digital Marketing Enthusiast | Creative Thinker</p>
+    <a href="#contact" class="btn">Contact Me</a>
+  </header>
 
-<header class="hero">
-  <div class="wrap">
-    <span class="eyebrow">Introduction</span>
-    <h1>Your Name</h1>
-    <p class="role">Computer Science Undergraduate &amp; Aspiring Software Engineer</p>
-    <p class="bio">
-      I'm a final-year student with a focus on web development and problem solving.
-      I enjoy building clean, practical software and learning the fundamentals
-      deeply enough to apply them anywhere. Replace this paragraph with your own
-      two or three sentence introduction.
-    </p>
-    <div class="contact-row">
-      <a href="mailto:you@example.com">you@example.com</a>
-      <span>·</span>
-      <a href="tel:+8800000000">+880 00 0000 0000</a>
-      <span>·</span>
-      <a href="https://github.com/yourusername" target="_blank" rel="noopener">github.com/yourusername</a>
-      <span>·</span>
-      <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">linkedin.com/in/yourusername</a>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#results">Results</a>
+    <a href="#skills">Skills</a>
+    <a href="#hobbies">Hobbies</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      I am a dedicated BBA student with strong communication and organizational skills. I have a passion for crafting, fashion designing, and cooking. I possess good knowledge of digital marketing, am proficient in English, and have solid skills in Microsoft Word and Microsoft Excel.
     </div>
-  </div>
-</header>
+  </section>
 
-<section id="education">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="section-num">01</span>
-      <h2>Education</h2>
-    </div>
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card">🎓 University: Green University Bangladesh</div>
+    <div class="card">🏫 College: Central Women's College</div>
+    <div class="card">🏫 School: Haider Ali School and College</div>
+    <div class="card">📘 Program: Bachelor of Business Administration (BBA)</div>
+  </section>
 
-    <div class="ledger reveal">
-      <div class="ledger-row">
-        <span class="ledger-stamp">Varsity</span>
-        <div class="ledger-body">
-          <h3>B.Sc. in Computer Science &amp; Engineering</h3>
-          <p>Your University Name, Dhaka</p>
-          <span class="ledger-meta">CGPA 3.70 / 4.00</span>
-        </div>
-        <span class="ledger-year">2022 — Present</span>
+  <!-- RESULTS -->
+  <section id="results">
+    <h2>Academic Results</h2>
+    <div class="card">SSC GPA: <b>5.00</b></div>
+    <div class="card">HSC GPA: <b>4.83</b></div>
+    <div class="card">First Semester CGPA: <b>3.30</b></div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="card">
+      <div class="skill">Microsoft Word
+        <div class="bar"><div class="progress" style="width: 90%"></div></div>
       </div>
 
-      <div class="ledger-row">
-        <span class="ledger-stamp">HSC</span>
-        <div class="ledger-body">
-          <h3>Higher Secondary Certificate — Science</h3>
-          <p>Your College Name, Narayanganj</p>
-          <span class="ledger-meta">GPA 5.00 / 5.00</span>
-        </div>
-        <span class="ledger-year">2022</span>
+      <div class="skill">Microsoft Excel
+        <div class="bar"><div class="progress" style="width: 85%"></div></div>
       </div>
 
-      <div class="ledger-row">
-        <span class="ledger-stamp">SSC</span>
-        <div class="ledger-body">
-          <h3>Secondary School Certificate — Science</h3>
-          <p>Your School Name, Narayanganj</p>
-          <span class="ledger-meta">GPA 5.00 / 5.00</span>
-        </div>
-        <span class="ledger-year">2020</span>
+      <div class="skill">Digital Marketing
+        <div class="bar"><div class="progress" style="width: 75%"></div></div>
+      </div>
+
+      <div class="skill">English Communication
+        <div class="bar"><div class="progress" style="width: 80%"></div></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="experience">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="section-num">02</span>
-      <h2>Work Experience</h2>
+  <!-- HOBBIES -->
+  <section id="hobbies">
+    <h2>Interests & Hobbies</h2>
+    <div class="badges">
+      <div class="badge">Crafting</div>
+      <div class="badge">Fashion Design</div>
+      <div class="badge">Cooking</div>
+      <div class="badge">Reading</div>
+      <div class="badge">Digital Marketing</div>
     </div>
+  </section>
 
-    <div class="reveal">
-      <div class="job">
-        <span class="job-period">Jun 2025 — Present</span>
-        <div>
-          <h3 class="job-title">Junior Web Developer</h3>
-          <span class="job-org">Company Name, Dhaka</span>
-          <ul>
-            <li>Built and maintained features for a customer-facing web app using JavaScript and React.</li>
-            <li>Worked with a small team to ship weekly releases and fix reported bugs.</li>
-            <li>Replace with your own responsibilities and measurable outcomes.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="job">
-        <span class="job-period">Jan 2025 — May 2025</span>
-        <div>
-          <h3 class="job-title">Intern, Software Development</h3>
-          <span class="job-org">Company Name, Dhaka</span>
-          <ul>
-            <li>Assisted in building internal tools and automating manual reporting tasks.</li>
-            <li>Learned and applied Git workflows, code review, and basic CI practices.</li>
-          </ul>
-        </div>
-      </div>
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact Information</h2>
+    <div class="card contact">
+      <p><i class="fa-solid fa-phone"></i> 01834445731</p>
+      <p><i class="fa-solid fa-envelope"></i> afsanamimi018@gmail.com</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="skills">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="section-num">03</span>
-      <h2>Skills</h2>
-    </div>
-
-    <div class="skill-groups reveal">
-      <div>
-        <span class="skill-group-label">Languages</span>
-        <div class="pill-row">
-          <span class="pill">JavaScript</span>
-          <span class="pill">Python</span>
-          <span class="pill">C++</span>
-          <span class="pill">SQL</span>
-        </div>
-      </div>
-      <div>
-        <span class="skill-group-label">Tools &amp; Frameworks</span>
-        <div class="pill-row">
-          <span class="pill">React</span>
-          <span class="pill">Node.js</span>
-          <span class="pill">Git</span>
-          <span class="pill">Figma</span>
-        </div>
-      </div>
-      <div>
-        <span class="skill-group-label">Other</span>
-        <div class="pill-row">
-          <span class="pill">Problem Solving</span>
-          <span class="pill">Team Collaboration</span>
-          <span class="pill">Bengali (Native)</span>
-          <span class="pill">English (Fluent)</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  © <span id="year"></span> Your Name — Built with HTML &amp; CSS.
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  reveals.forEach(el => observer.observe(el));
-</script>
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2026 Afsana Mimi | All Rights Reserved
+  </footer>
 
 </body>
 </html>
